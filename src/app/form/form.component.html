@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="form-container">
+    <div class="content-container">
+      <div ngClass="{{ error ? 'error' : '' }}">{{ error ? error : ""}}</div>  
+      <h1 (click)="copyText()" class="password">{{password}}</h1>
+      <div ngClass="{{ copied ? 'copied' : '' }}">{{ copied ? "Password copied to the clipboard!" : ""}}</div>  
+    </div>
+
+
+    <div class="input-container" [formGroup]="passwordForm">
+        <div>
+          <input type="checkbox" id="specialChars" [defaultChecked]="true" formControlName="chars">
+          <label for="specialChars">SpecialCharacters</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="numbers" [defaultChecked]="true" formControlName="numbers">
+          <label for="numbers">Numbers</label>
+        </div>
+
+
+        <div>
+          <input type="checkbox" id="lowercaseLetters" [defaultChecked]="true" formControlName="lowercase">
+          <label for="lowercaseLetters">Lowercase</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="uppercaseLetters" [defaultChecked]="true" formControlName="uppercase">
+          <label for="uppercaseLetters">Uppercase</label>
+        </div>
+
+        <div class="btn-container">
+          <button class="btn" (click)="submitForm()">
+            Generate
+          </button>
+        </div>
+
+    </div>
+
+  </div>
+</div>
